@@ -7,8 +7,8 @@ LABEL authors="davismcc@gmail.com" \
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y --no-install-recommends \
+        build-essential \
         curl \
-        emacs \
         git \
         libbz2-dev \
         libcurl4-openssl-dev \
@@ -26,11 +26,13 @@ RUN apt-get update && \
         pandoc \
         pandoc-citeproc \
         python-dev \
+        python-pip \
         wget \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install virtualenv
+RUN pip install --upgrade pip
+RUN pip install --upgrade virtualenv
 
 RUN mkdir -p /usr/local/lib/R/site-library
 ADD install.R /tmp/
