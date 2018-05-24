@@ -3,7 +3,35 @@ LABEL authors="davismcc@gmail.com" \
     maintainer="Davis McCarthy <davismcc@gmail.com>" \
     description="Docker image containing latest R with tidyvers and Bioconductor packages"
  
-FROM bioconductor/release_core2
+# Install container-wide requrements gcc, pip, zlib, libssl, make, libncurses, fortran77, g++, R
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        emacs \
+        git \
+        libbz2-dev \
+        libcurl4-openssl-dev \
+        libgsl-dev \
+        libgsl2 \
+        liblzma-dev \
+        libncurses5-dev \
+        libpcre3-dev \
+        libpng-dev \
+        libreadline-dev \
+        libssh2-1-dev \
+        libssl-dev \
+        libxml2-dev \
+        libzmq3-dev \
+        pandoc \
+        pandoc-citeproc \
+        python-dev \
+        wget \
+        zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install virtualenv
+
 RUN mkdir -p /usr/local/lib/R/site-library
 ADD install.R /tmp/
 RUN R -f /tmp/install.R

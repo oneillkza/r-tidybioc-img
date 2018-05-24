@@ -70,4 +70,4 @@ This repo adds the following packages (if not already installed in the bootstrap
 * VGAM
 * viridis
 * wesanderson
-* xtable"
+* xtable
