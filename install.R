@@ -1,5 +1,7 @@
-source("https://bioconductor.org/biocLite.R")
-library(BiocInstaller) # shouldn't be necessary
+## install script for R pkgs
+install.packages("BiocManager")
+## update installed packages
+BiocManager::install()
 
 pkgs <- c(
   "apcluster",
@@ -49,10 +51,13 @@ pkgs <- c(
   "mvoutlier",
   "NMF",
   "packrat",
+  "pcaMethods",
   "pheatmap",
+  "preprocessCore",
   "pryr",
   "qvalue",
   "RColorBrewer",
+  "reticulate",
   "roxygen2",
   "rprojroot",
   "scales",
@@ -62,13 +67,14 @@ pkgs <- c(
   "tufte",
   "UpSetR",
   "VGAM",
+  "VariantAnnotation",
   "viridis",
   "wesanderson",
   "xtable"
 )
 
 # check that desired packages are available
-ap.db <- available.packages(contrib.url(biocinstallRepos()))
+ap.db <- available.packages(contrib.url(BiocManager::repositories()))
 ap <- rownames(ap.db)
 pkgs_to_install <- pkgs[pkgs %in% ap]
 
@@ -77,7 +83,7 @@ ip.db <- installed.packages()
 ip <- rownames(ip.db)
 pkgs_to_install <- pkgs_to_install[!(pkgs_to_install %in% ip)]
 
-biocLite(pkgs_to_install)
+BiocManager::install(pkgs_to_install)
 install.packages("rmote", repos = c(getOption("repos"), "http://cloudyr.github.io/drat"))
 greta::install_tensorflow()
 
@@ -91,6 +97,4 @@ if (!is.null(warnings()))
   if (length(grep("is not available|had non-zero exit status", w)))
     quit("no", 1L)
 }
-
-suppressWarnings(BiocInstaller::biocValid(fix=TRUE, ask=FALSE))
 
