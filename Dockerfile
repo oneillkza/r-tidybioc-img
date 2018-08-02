@@ -1,7 +1,7 @@
 FROM rocker/verse
 LABEL authors="davismcc@gmail.com" \
     maintainer="Davis McCarthy <davismcc@gmail.com>" \
-    description="Docker image containing latest R with tidyvers and Bioconductor packages"
+    description="Docker image containing latest R with tidyverse and Bioconductor packages"
  
 # Install container-wide requrements gcc, pip, zlib, libssl, make, libncurses, fortran77, g++, R
 RUN apt-get update && \
@@ -12,6 +12,7 @@ RUN apt-get update && \
         git \
         libbz2-dev \
         libcurl4-openssl-dev \
+        libcurl3-gnutls \
         libgsl-dev \
         libgsl2 \
         liblzma-dev \
