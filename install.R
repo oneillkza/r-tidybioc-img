@@ -57,6 +57,7 @@ pkgs <- c(
   "pryr",
   "qvalue",
   "RColorBrewer",
+  "RCurl",
   "reticulate",
   "roxygen2",
   "rprojroot",

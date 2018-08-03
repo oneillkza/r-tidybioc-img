@@ -12,13 +12,16 @@ RUN apt-get update && \
         git \
         libbz2-dev \
         libcurl4-openssl-dev \
+        libcurl4-gnutls-dev \
         libcurl3-gnutls \
+        libgsl0-dev \
         libgsl-dev \
         libgsl2 \
         liblzma-dev \
         libncurses5-dev \
         libpcre3-dev \
         libpng-dev \
+        librdf0-dev \
         libreadline-dev \
         libssh2-1-dev \
         libssl-dev \
