@@ -8,17 +8,10 @@ RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y --no-install-recommends \
         build-essential \
-        curl \
         git \
-        libbz2-dev \
         libcurl4-openssl-dev \
-        libgsl0-dev \
         libgsl-dev \
-        libgsl2 \
-        liblzma-dev \
         libncurses5-dev \
-        libpcre3-dev \
-        libpng-dev \
         librdf0-dev \
         libreadline-dev \
         libssh2-1-dev \
@@ -30,7 +23,6 @@ RUN apt-get update && \
         python-dev \
         python-pip \
         wget \
-        zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
