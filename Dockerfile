@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
         git \
-        libcurl4-openssl-dev \
+        libcurl4-gnutls-dev \
         libgsl-dev \
         libncurses5-dev \
         librdf0-dev \
