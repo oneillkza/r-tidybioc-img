@@ -12,7 +12,6 @@ RUN apt-get update && \
         git \
         libbz2-dev \
         libcurl4-openssl-dev \
-        libcurl4-gnutls-dev \
         libcurl3-gnutls \
         libgsl0-dev \
         libgsl-dev \
